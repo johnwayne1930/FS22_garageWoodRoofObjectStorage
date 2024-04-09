@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable type="objectStorage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/placeable.xsd">
+    <storeData>
+        <name>$l10n_storeItem_objectStorage</name>
+        <functions>
+            <function>$l10n_function_objectStorage</function>
+        </functions>
+        <image>store_garageWoodRoofObjectStorage.dds</image>
+        <price>44000</price>
+        <dailyUpkeep>44</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>RUDOLFHOERMANN</brand>
+        <species>placeable</species>
+        <category>storages</category>
+        <brush>
+            <type>placeable</type>
+            <category>buildings</category>
+            <tab>silos</tab>
+        </brush>
+        <canBeSold>true</canBeSold>
+        <showInStore>true</showInStore>
+
+        <storeIconRendering>
+            <settings cameraXRot="-15" cameraYRot="44" advancedBoundingBox="false"/>
+        </storeIconRendering>
+    </storeData>
+
+    <base>
+        <filename>garageWoodRoofObjectStorage.i3d</filename>
+        <canBeRenamed>true</canBeRenamed>
+    </base>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="0" linkNode="stopCrossing01" filename="$data/placeables/lizard/objectStorage/stopCrossing.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="stopCrossing02" filename="$data/placeables/lizard/objectStorage/stopCrossing.i3d"/>
+        <dynamicallyLoadedPart node="0" linkNode="stopCrossing03" filename="$data/placeables/lizard/objectStorage/stopCrossing.i3d"/>
+    </dynamicallyLoadedParts>
+
+    <placement useRandomYRotation="false" useManualYRotation="true">
+        <testAreas>
+            <testArea startNode="testArea1Start" endNode="testArea1End" />
+        </testAreas>
+
+        <sounds>
+            <place template="smallImp" />
+        </sounds>
+    </placement>
+
+    <clearAreas>
+        <clearArea startNode="clearArea01Start" widthNode="clearArea01Width" heightNode="clearArea01Height"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="5" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="levelingArea01Start" widthNode="levelingArea01Width" heightNode="levelingArea01Height" groundType="asphalt"/>
+        </levelAreas>
+    </leveling>
+
+    <indoorAreas>
+        <indoorArea startNode="indoorArea01Start" widthNode="indoorArea01Width" heightNode="indoorArea01Height"/>
+    </indoorAreas>
+
+    <triggerMarkers>
+        <triggerMarker node="warningStripes" />
+        <triggerMarker node="playerTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="LOAD"   adjustToGround="true" />
+        <triggerMarker node="objectTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="UNLOAD" adjustToGround="true" />
+    </triggerMarkers>
+
+    <hotspots>
+        <hotspot type="LOADING" />
+    </hotspots>
+
+    <infoTrigger triggerNode="infoTrigger"/>
+
+    <!-- <objectStorage supportsBales="true" supportsPallets="true" maxLength="8.5" maxWidth="6" maxHeight="3.5"> -->
+    <objectStorage supportsBales="true" supportsPallets="true" maxLength="14.3" maxWidth="6.3" maxHeight="4">
+        <playerTrigger node="playerTrigger" />
+        <objectTrigger node="objectTrigger" />
+        <spawnAreas>
+            <spawnArea startNode="spawnArea1Start" endNode="spawnArea1End"/>
+        </spawnAreas>
+        <storageAreas>
+            <storageArea startNode="storageArea1Start" endNode="storageArea1End"/>
+        </storageAreas>
+    </objectStorage>
+
+    <pointOfInterest>
+        <point triggerNode="objectTrigger" text="$l10n_poi_objectStorageUnload" showOwner="true"  showEveryone="false"/>
+        <point triggerNode="playerTrigger" text="$l10n_poi_objectStorageLoad"   showOwner="true"  showEveryone="false" />
+    </pointOfInterest>
+
+    <tipOcclusionUpdateAreas>
+        <tipOcclusionUpdateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End" />
+    </tipOcclusionUpdateAreas>
+
+    <ai>
+        <updateAreas>
+            <updateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End" />
+        </updateAreas>
+    </ai>
+
+    <i3dMappings>
+        <i3dMapping id="clearArea01Start" node="0>0|0" />
+        <i3dMapping id="clearArea01Width" node="0>0|0|0" />
+        <i3dMapping id="clearArea01Height" node="0>0|0|1" />
+        <i3dMapping id="levelingArea01Start" node="0>1|0" />
+        <i3dMapping id="levelingArea01Width" node="0>1|0|0" />
+        <i3dMapping id="levelingArea01Height" node="0>1|0|1" />
+        <i3dMapping id="indoorArea01Start" node="0>2|0" />
+        <i3dMapping id="indoorArea01Width" node="0>2|0|0" />
+        <i3dMapping id="indoorArea01Height" node="0>2|0|1" />
+        <i3dMapping id="tipOcclusionUpdateArea1Start" node="0>4|0" />
+        <i3dMapping id="tipOcclusionUpdateArea1End" node="0>4|0|0" />
+        <i3dMapping id="testArea1Start" node="0>5|0" />
+        <i3dMapping id="testArea1End" node="0>5|0|0" />
+        <i3dMapping id="spawnArea1Start" node="0>8|0|0" />
+        <i3dMapping id="spawnArea1End" node="0>8|0|0|0" />
+        <i3dMapping id="storageArea1Start" node="0>8|0|1" />
+        <i3dMapping id="storageArea1End" node="0>8|0|1|0" />
+        <i3dMapping id="objectTrigger" node="0>8|1" />
+        <i3dMapping id="objectTriggerMarker" node="0>8|1|0" />
+        <i3dMapping id="warningStripes" node="0>8|1|1" />
+        <i3dMapping id="playerTrigger" node="0>8|2" />
+        <i3dMapping id="playerTriggerMarker" node="0>8|2|0" />
+        <i3dMapping id="infoTrigger" node="0>8|3" />
+        <i3dMapping id="stopCrossing01" node="0>7|1" />
+        <i3dMapping id="stopCrossing02" node="0>7|3" />
+        <i3dMapping id="stopCrossing03" node="0>7|2" />
+    </i3dMappings>
+</placeable>
